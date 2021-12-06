@@ -52,15 +52,19 @@ namespace SecretSharingApp
             this.btnDecoding.TabIndex = 1;
             this.btnDecoding.Text = "Deszyfryzacja";
             this.btnDecoding.UseVisualStyleBackColor = true;
+            this.btnDecoding.Click += new System.EventHandler(this.btnDecoding_Click);
             // 
             // frmMainSecretSharing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1585, 777);
+            this.ClientSize = new System.Drawing.Size(1572, 821);
             this.Controls.Add(this.btnDecoding);
             this.Controls.Add(this.btnEncoding);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmMainSecretSharing";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dzielenie sekretu";
             this.ResumeLayout(false);
 

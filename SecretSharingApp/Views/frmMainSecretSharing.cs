@@ -21,8 +21,16 @@ namespace SecretSharingApp
         private void btnEncoding_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var EncodingForm = new frmSecretEncoding();
-            EncodingForm.ShowDialog();
+            var EncryptingForm = new frmSecretEncrypting();
+            EncryptingForm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnDecoding_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var DecryptingForm = new frmSecretDecrypting();
+            DecryptingForm.ShowDialog();
             this.Close();
         }
     }
