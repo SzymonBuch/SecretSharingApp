@@ -1,4 +1,5 @@
-﻿using SecretSharingApp.Models;
+﻿using SecretSharingApp.Helpers;
+using SecretSharingApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -21,11 +22,11 @@ namespace SecretSharingApp
                 for (int height = 0; height < imageProperties.Height; height++)
                 {
                     var pixel = imageProperties.Image.GetPixel(width, height);
-                    string PIX = ARGBToString
-                        (ColorToString(Convert.ToString(pixel.A, 2)),
-                        ColorToString(Convert.ToString(pixel.R, 2)),
-                        ColorToString(Convert.ToString(pixel.G, 2)),
-                        ColorToString(Convert.ToString(pixel.B, 2)));
+                    string PIX = HelpFunctions.ARGBToString
+                        (HelpFunctions.ColorToString(Convert.ToString(pixel.A, 2)),
+                        HelpFunctions.ColorToString(Convert.ToString(pixel.R, 2)),
+                        HelpFunctions.ColorToString(Convert.ToString(pixel.G, 2)),
+                        HelpFunctions.ColorToString(Convert.ToString(pixel.B, 2)));
                     for (int i = 0; i < 32; i++)
                     {
                         if (PIX[i] == '1')
@@ -45,7 +46,6 @@ namespace SecretSharingApp
 
         public static string[,] GenerateSharesPixelsArray(int [,,] sharesArray, ImageProperties imageProperties)
         {
-
             var sharesPixelsArray = new string[imageProperties.SharesNumber, imageProperties.Width * imageProperties.Height];
             for (int i = 0; i < imageProperties.SharesNumber; i++)
             {
@@ -76,26 +76,6 @@ namespace SecretSharingApp
             return rand;
         }
 
-        private static string ColorToString(string colorValue) 
-        {
-            while (colorValue.Length<8)
-            {
-                colorValue = '0' + colorValue;
-            }
-            return colorValue;
-        }
-
-        private static string ARGBToString(string A, string R, string G, string B)
-        {
-            return A + R + G + B;
-        }
-
-        private static IList<int> SplitBitsString(string colors)
-        {
-            return Enumerable.Range(0, colors.Length / 8)
-                .Select(i => Convert.ToInt32(colors.Substring(i * 8, 8), 2)).ToList();
-        }
-
         public static Bitmap GenerateBitmap(string[,] sharesPixelsArray, int width, int height, int share)
         {
             int counter = 0;
@@ -104,29 +84,13 @@ namespace SecretSharingApp
             {
                 for (int j = 0; j < height; j++)
                 {
-                    var ARGBValueList = SplitBitsString(sharesPixelsArray[share, counter]);
+                    var ARGBValueList = HelpFunctions.SplitBitsString(sharesPixelsArray[share, counter]);
                     var pixel = Color.FromArgb(ARGBValueList[0], ARGBValueList[1], ARGBValueList[2], ARGBValueList[3]);
                     shareImage.SetPixel(i, j, pixel);
                     counter++;
                 }
             }
             return shareImage;
-        }
-
-        public static bool CharToBool(char bit)
-        {
-            if (bit == '0')
-                return false;
-            else
-                return true;
-        }
-
-        public static char BoolToChar(bool orResult)
-        {
-            if (orResult)
-                return '1';
-            else
-                return '0';
         }
     }
 }

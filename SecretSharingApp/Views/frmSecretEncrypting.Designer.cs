@@ -48,7 +48,7 @@ namespace SecretSharingApp.Views
             // 
             this.btnBack.Location = new System.Drawing.Point(12, 12);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(236, 84);
+            this.btnBack.Size = new System.Drawing.Size(200, 84);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Powrót";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -57,18 +57,18 @@ namespace SecretSharingApp.Views
             // picInput
             // 
             this.picInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picInput.Location = new System.Drawing.Point(100, 102);
+            this.picInput.Location = new System.Drawing.Point(95, 102);
             this.picInput.Name = "picInput";
-            this.picInput.Size = new System.Drawing.Size(442, 428);
+            this.picInput.Size = new System.Drawing.Size(450, 450);
             this.picInput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picInput.TabIndex = 1;
             this.picInput.TabStop = false;
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(100, 536);
+            this.btnUpload.Location = new System.Drawing.Point(95, 558);
             this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(442, 80);
+            this.btnUpload.Size = new System.Drawing.Size(450, 80);
             this.btnUpload.TabIndex = 2;
             this.btnUpload.Text = "Wczytaj obraz";
             this.btnUpload.UseVisualStyleBackColor = true;
@@ -94,9 +94,9 @@ namespace SecretSharingApp.Views
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(95, 933);
+            this.btnAccept.Location = new System.Drawing.Point(95, 985);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(447, 80);
+            this.btnAccept.Size = new System.Drawing.Size(450, 80);
             this.btnAccept.TabIndex = 15;
             this.btnAccept.Text = "Zatwierdź";
             this.btnAccept.UseVisualStyleBackColor = true;
@@ -106,14 +106,14 @@ namespace SecretSharingApp.Views
             // 
             this.numSharesNumber.Location = new System.Drawing.Point(95, 702);
             this.numSharesNumber.Name = "numSharesNumber";
-            this.numSharesNumber.Size = new System.Drawing.Size(447, 35);
+            this.numSharesNumber.Size = new System.Drawing.Size(450, 35);
             this.numSharesNumber.TabIndex = 16;
             // 
             // numMinimalShares
             // 
             this.numMinimalShares.Location = new System.Drawing.Point(95, 829);
             this.numMinimalShares.Name = "numMinimalShares";
-            this.numMinimalShares.Size = new System.Drawing.Size(447, 35);
+            this.numMinimalShares.Size = new System.Drawing.Size(450, 35);
             this.numMinimalShares.TabIndex = 17;
             // 
             // listShares
@@ -124,10 +124,12 @@ namespace SecretSharingApp.Views
             this.listShares.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnShare});
             this.listShares.HideSelection = false;
-            this.listShares.Location = new System.Drawing.Point(637, 106);
+            this.listShares.Location = new System.Drawing.Point(603, 102);
+            this.listShares.MultiSelect = false;
             this.listShares.Name = "listShares";
-            this.listShares.Size = new System.Drawing.Size(591, 906);
-            this.listShares.TabIndex = 18;
+            this.listShares.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.listShares.Size = new System.Drawing.Size(600, 750);
+            this.listShares.TabIndex = 19;
             this.listShares.UseCompatibleStateImageBehavior = false;
             this.listShares.View = System.Windows.Forms.View.Details;
             this.listShares.DoubleClick += new System.EventHandler(this.listShares_DoubleClick);
@@ -135,13 +137,13 @@ namespace SecretSharingApp.Views
             // columnShare
             // 
             this.columnShare.Text = "Nazwa części";
-            this.columnShare.Width = 584;
+            this.columnShare.Width = 250;
             // 
             // frmSecretEncrypting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1272, 1121);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1300, 1200);
             this.Controls.Add(this.listShares);
             this.Controls.Add(this.numMinimalShares);
             this.Controls.Add(this.numSharesNumber);
@@ -152,7 +154,7 @@ namespace SecretSharingApp.Views
             this.Controls.Add(this.picInput);
             this.Controls.Add(this.btnBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "frmSecretEncrypting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Szyfrowanie";

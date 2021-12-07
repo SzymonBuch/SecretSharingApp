@@ -36,6 +36,8 @@ namespace SecretSharingApp.Models
             Interlocked.Increment(ref counter);
             Name = "Share" + counter;
             Image = bitmap;
+            Width = Image.Width;
+            Height = Image.Height;
         }
     }
 }
